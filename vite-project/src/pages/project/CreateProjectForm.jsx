@@ -5,8 +5,18 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useForm } from "react-hook-form";
 import { tags } from "../ProjectList/ProjectList";
+import { Cross1Icon } from "@radix-ui/react-icons";
 
 const CreateProjectForm = () => {
+
+	const handleTagsChange = (newValue) => {
+		const currentTags = form.getValues("tags");
+
+		const updatedTags = currentTags.includes(newValue)?
+			currentTags.filter(tag=>tag!==newValue):[...currentTags,newValue];
+		
+		form.setValue("tags", updatedTags)
+	}
 	const form = useForm({
 		//resolver:zod
 		defaultValues: {
@@ -80,7 +90,7 @@ const CreateProjectForm = () => {
 						render={({ field }) => <FormItem>
 							<FormControl>
 								<Select
-									value={field.value}
+
 									onValueChange={(value) => {
 										field.onChange(value)
 									}}
@@ -89,10 +99,23 @@ const CreateProjectForm = () => {
 										<SelectValue placeholder="Tags" />
 									</SelectTrigger>
 									<SelectContent>
-										{tags.map((item) => (<SelectItem key={item} value={item}>{item}</SelectItem>))}
+										{tags.map((item) => (
+											<SelectItem key={item} value={item}>
+												{item}
+											</SelectItem>
+										))}
 									</SelectContent>
 								</Select>
 							</FormControl>
+							<div className="flex gap-1 flex-wrap">
+
+								{field.value.map((item) => <div key={item} onClick={() => handleTagsChange(item)}
+									className="cursor-pointer flex rounded-full items-center border gap-2 px-4 py-1">
+									<span className="text-sm">django</span>
+									<Cross1Icon className="h-3 w-3" />
+								</div>)}
+
+							</div>
 							<FormMessage />
 						</FormItem>}
 					/>
