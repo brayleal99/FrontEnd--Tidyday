@@ -1,6 +1,15 @@
-import { ScrollArea } from "@radix-ui/react-scroll-area";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTrigger} from "@/components/ui/dialog";
+import { PlusIcon } from "@radix-ui/react-icons";
+import InviteUserForm from "./InviteUserForm";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const ProjectDetails = () => {
+    const handleProjectInvitation = () => {
+        
+    }
     return (
         <>
 
@@ -15,14 +24,44 @@ const ProjectDetails = () => {
                                 <div className="flex">
                                     <p className="w-36">Project lead :</p>
                                     <p>TidyDay</p>
+
                                 </div>
                                 <div className="flex">
                                     <p className="w-36">Members :</p>
-                                    <div>
+                                    <div className="flex items-center gap-2">
+
+                                        {[1, 1, 1, 1].map((item) => <Avatar className="cursor-pointer" key={item}>
+                                            <AvatarFallback>Z</AvatarFallback>
+                                        </Avatar>)}
 
                                     </div>
+                                    <Dialog>
+                                        <DialogTrigger>
+                                            <DialogClose>
+                                                <Button size="sm" variant="outline" onClick={handleProjectInvitation} className="ml-2">
+                                                    <span>invite</span>
+                                                    <PlusIcon className="w-3 h-3"/>
+                                                </Button>
+                                            </DialogClose>
+                                        </DialogTrigger>
+                                        <DialogContent>
+                                            <DialogHeader>Inite User</DialogHeader>
+                                            <InviteUserForm/>
+                                        </DialogContent>
+                                    </Dialog>
                                 </div>
+                                <div className="flex">
+                                    <p className="w-36">Category :</p>
+                                    <p>Fullstak</p>
+
+                                </div>
+                                <div className="flex">
+                                    <p className="w-36">Project lead :</p>
+                                    <Badge>TidayDay</Badge>
+
                             </div>
+                            </div>
+                            
                         </div>
 
 

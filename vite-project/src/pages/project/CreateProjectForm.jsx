@@ -30,7 +30,7 @@ const CreateProjectForm = () => {
 
 	const onSubmit = (data) => {
 		console.log("create project data", data);
-	}
+	};
 	return (
 		<div>
 
