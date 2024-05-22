@@ -4,26 +4,27 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "@/component
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useForm } from "react-hook-form";
-import { tags } from "../ProjectList/ProjectList";
 import { Cross1Icon } from "@radix-ui/react-icons";
+import { tags } from "../ProjectList/ProjectList";
 
 const CreateProjectForm = () => {
 
 	const handleTagsChange = (newValue) => {
 		const currentTags = form.getValues("tags");
 
-		const updatedTags = currentTags.includes(newValue)?
-			currentTags.filter(tag=>tag!==newValue):[...currentTags,newValue];
-		
+		const updatedTags = currentTags.includes(newValue) ?
+			currentTags.filter(tag => tag !== newValue) : [...currentTags, newValue];
+
 		form.setValue("tags", updatedTags)
 	}
+
 	const form = useForm({
 		//resolver:zod
 		defaultValues: {
 			name: "",
 			description: "",
 			category: "",
-			tasgs: ["javascript", "react"]
+			tags: ["javascript", "react"]
 		}
 	})
 
@@ -62,7 +63,7 @@ const CreateProjectForm = () => {
 						</FormItem>}
 					/>
 					<FormField control={form.control}
-						name="Category"
+						name="category"
 						render={({ field }) => <FormItem>
 							<FormControl>
 								<Select defaultValue="fullstack"
@@ -86,13 +87,13 @@ const CreateProjectForm = () => {
 						</FormItem>}
 					/>
 					<FormField control={form.control}
-						name="Tags"
+						name="tags"
 						render={({ field }) => <FormItem>
 							<FormControl>
 								<Select
 
 									onValueChange={(value) => {
-										field.onChange(value)
+										handleTagsChange(value)
 									}}
 								>
 									<SelectTrigger className="w-full">
@@ -111,7 +112,7 @@ const CreateProjectForm = () => {
 
 								{field.value.map((item) => <div key={item} onClick={() => handleTagsChange(item)}
 									className="cursor-pointer flex rounded-full items-center border gap-2 px-4 py-1">
-									<span className="text-sm">django</span>
+									<span className="text-sm">{item}</span>
 									<Cross1Icon className="h-3 w-3" />
 								</div>)}
 
@@ -133,4 +134,4 @@ const CreateProjectForm = () => {
 	)
 }
 
-export default CreateProjectForm;
+export default CreateProjectForm; 

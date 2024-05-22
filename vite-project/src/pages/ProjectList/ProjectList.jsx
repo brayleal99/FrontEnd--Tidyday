@@ -14,14 +14,19 @@ export const tags = [
     "nextjs",
     "spring boot",
     "mysql",
+    "mongodb",
+    "angular",
+    "python",
+    "flask",
+    "django",
 ];
 const ProjectList = () => {
-    const [keyword, setKeyword]=useState("");
+    const [keyword, setKeyword] = useState("");
     const handleFilterChange = (section, value) => {
         console.log("value", value, section);
     };
-    const handleSearchChange=(e)=>{
-setKeyword(e.target.value)
+    const handleSearchChange = (e) => {
+        setKeyword(e.target.value)
 
     }
     return (
@@ -88,8 +93,8 @@ setKeyword(e.target.value)
                     <div className="space-y-5 min-h-[74vh]">
 
                         {
-                            keyword?[1,1,1].map((item)=><ProjectCard key={item}/>):
-                            [1,1,1,1,1].map((item)=><ProjectCard key={item}/>)
+                            keyword ? [1, 1, 1].map((item) => <ProjectCard key={item} />) :
+                                [1, 1, 1, 1, 1].map((item) => <ProjectCard key={item} />)
                         }
 
                     </div>
