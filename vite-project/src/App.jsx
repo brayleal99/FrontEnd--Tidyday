@@ -7,7 +7,9 @@ import ProjectDetails from './pages/ProjectDetails/ProjectDetails'
 function App() {
 
   return (
+
     <>
+    
       <Navbar/>
       <Routes>
         <Route path='/' element={<Home />} />

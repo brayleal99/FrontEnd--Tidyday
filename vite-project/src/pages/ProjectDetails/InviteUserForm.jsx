@@ -9,8 +9,8 @@ const InviteUserForm = () => {
         //resolver:zod
         defaultValues: {
             email: "",
-        }
-    })
+        },
+    });
 
     const onSubmit = (data) => {
         console.log("create project data", data);
@@ -22,7 +22,7 @@ const InviteUserForm = () => {
 
                     <form className="space-y-5" onSubmit={form.handleSubmit(onSubmit)}>
                         <FormField control={form.control}
-                            name="name"
+                            name="email"
                             render={({ field }) => <FormItem>
                                 <FormControl>
                                     <Input {...field}
