@@ -57,7 +57,7 @@ const ProjectDetails = () => {
                                 </div>
                                 <div className="flex">
                                     <p className="w-36">Project lead :</p>
-                                    <Badge>TidayDay</Badge>
+                                    <Badge>Tiday Day</Badge>
 
                             </div>
                             </div>
