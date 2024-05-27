@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { PlusIcon } from "@radix-ui/react-icons"
 import CreateIssueForm from "./CreateIssueForm"
 
-const IssueList = ({title,status}) => {
+const IssueList = ({title, status}) => {
   return (
     <div>
         <Dialog>
@@ -16,7 +16,7 @@ const IssueList = ({title,status}) => {
 </CardHeader>
 <CardContent className="px-2">
     <div className="space-y-2">
-        <IssueCard/>
+        {[1,1,1,1].map((item)=><IssueCard key={item}/>)}
 
     </div>
 </CardContent>
