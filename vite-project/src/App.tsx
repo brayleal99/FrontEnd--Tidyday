@@ -6,6 +6,7 @@ import ProjectDetails from './pages/ProjectDetails/ProjectDetails'
 import IssueDetails from './pages/IssueDetails/IssueDetails'
 import { ThemeProvider } from './components/ui/theme-provider'
 import Subscription from './pages/Subscription/Subscription'
+import Help from './pages/Home/Help_us/Help'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
 		<ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
 			<Navbar />
 			<Routes>
+				<Route path='/help' element={<Help/>} />
 				<Route path='/' element={<Home />} />
 				<Route path='/project/:id' element={<ProjectDetails />} />
 				<Route path='/project/:projectId/issue/:issueId' element={<IssueDetails />} />
