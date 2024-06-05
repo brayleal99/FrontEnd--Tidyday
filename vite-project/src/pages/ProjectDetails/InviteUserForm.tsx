@@ -23,14 +23,14 @@ const InviteUserForm = () => {
                     <form className="space-y-5" onSubmit={form.handleSubmit(onSubmit)}>
                         <FormField control={form.control}
                             name="email"
-                            render={({ field }) => <FormItem>
+                            render={({ field }) => (<FormItem>
                                 <FormControl>
                                     <Input {...field}
                                         className="border w-full border-gray-700 py-5 px-5"
                                         placeholder="User email..." />
                                 </FormControl>
                                 <FormMessage />
-                            </FormItem>}
+                            </FormItem>)}
                         />
 
                         <DialogClose>
