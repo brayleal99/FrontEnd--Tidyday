@@ -90,4 +90,4 @@ const Login = (props: LogInProps) => {
     )
 }
 
-export default Login
+export default Login;
